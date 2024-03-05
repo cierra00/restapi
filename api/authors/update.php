@@ -23,7 +23,7 @@
   // Get raw category data
   $data = json_decode(file_get_contents("php://input"));
 
-  //set id to update again
+  //set id to update
 
   $category->id = $data->id;
   $category->name = $data->name;
