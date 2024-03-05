@@ -30,11 +30,19 @@ $quote->quote = $data->quote;
 //$quote->author_id = $data->author_id;
 //$quote->category_id = $data->category_id;
 
-#Create Quote
-if($quote->create()){
-    echo json_encode($quote->create());
+$post_arr = array(
+  'id'=> $quote->create(),
+  'quote'=> $quote->quote,
+  
+);
+
+// Create quote
+if($quote->create()&& $data !== null ) {
+print_r(json_encode($post_arr));
+
+
 } else {
-    echo json_encode(
-        array('message'=>'Quote Not Created')
-    );
+echo json_encode(
+  array('message' => 'Missing Required Parameters')
+);
 }

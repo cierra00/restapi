@@ -37,6 +37,6 @@ if($category->create()&& $data !== null ) {
 
 } else {
   echo json_encode(
-    array('message' => 'Category Not Created')
+    array('message' => 'Missing Required Parameters')
   );
 }
