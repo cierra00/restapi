@@ -27,7 +27,7 @@
   // Create author
   if($author->create()&& $data !== null ) {
     echo json_encode(
-      array('message' => 'Post Created')
+      array('id'=> $author->create())
     );
   
   } else {

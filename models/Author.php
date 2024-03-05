@@ -67,7 +67,7 @@ class Author{
    #Create Category
    public function create() {
     // Create query
-    $query = 'INSERT INTO ' . $this->table . '(name) VALUES (:name)';
+    $query = 'INSERT INTO ' . $this->table . '(name) VALUES (:name)RETURNING id';
 
     // Prepare statement
     $stmt = $this->conn->prepare($query);
