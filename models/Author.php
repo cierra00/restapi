@@ -55,16 +55,14 @@ class Author{
 
         #Set Properties
         if($row){
-          $this->id = $row['id'];
-          $this->name = $row['author'];
-          } else {
-            $this->id = null;
-            $this->name = null;
-            
-          }
-     
-         
-      }
+        $this->id = $row['id'];
+        $this->name = $row['author'];
+        }
+
+        return $row;
+
+
+    }
 
    #Create Category
    public function create() {
@@ -76,12 +74,10 @@ class Author{
 
     // Clean data
     $this->name = htmlspecialchars(strip_tags($this->name));
- 
     
 
     // Bind data
     $stmt->bindParam(':name', $this->name);
-   
     
     
 
@@ -89,8 +85,7 @@ class Author{
 
     // Execute query
     if($stmt->execute()) {
-      $idResource = $stmt->fetchColumn();
-      return $idResource;
+      return true;
 }
 
 // Print error if something goes wrong
