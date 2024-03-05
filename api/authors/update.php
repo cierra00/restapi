@@ -17,23 +17,23 @@
   $database = new Database();
   $db = $database->connect();
 
-  // Instantiate blog author object
-  $author = new Author($db);
+  // Instantiate blog category object
+  $category = new Author($db);
 
-  // Get raw author data
+  // Get raw category data
   $data = json_decode(file_get_contents("php://input"));
 
   //set id to update
 
-  $author->id = $data->id;
-  $author->name = $data->name;
+  $category->id = $data->id;
+  $category->name = $data->name;
   
 
-  // Create author
-  if($author->update()) {
+  // Create category
+  if($category->update()) {
     echo json_encode(
-      array('id' => $author->id,
-     'author'=> $author->name));
+      array('message' => 'Author updated')
+    );
   } else {
     echo json_encode(
       array('message' => 'Author Not updated')
