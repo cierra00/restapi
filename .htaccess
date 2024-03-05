@@ -1,5 +1,1 @@
-SetEnv USERNAME "quotesdb_yplc_user"
-SetEnv PASSWORD "gJv0cJRAkwm1rHBgGb9ZV1mZHIR5ybdm"
-SetEnv DBNAME "quotesdb_yplc"
-SetEnv HOST "dpg-cnhcc8icn0vc73deld9g-a.oregon-postgres.render.com"
 SetEnv PORT "5432"

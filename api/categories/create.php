@@ -24,17 +24,19 @@
   $data = json_decode(file_get_contents("php://input"));
 
   $category->name = $data->name;
+  $post_arr = array(
+    'id'=> $category->create(),
+    'category'=> $category->name,
+    
+);
 
-  
+// Create category
+if($category->create()&& $data !== null ) {
+  print_r(json_encode($post_arr));
   
 
-  // Create category
-  if($category->create()) {
-    echo json_encode(
-      array('message' => 'Category Created')
-    );
-  } else {
-    echo json_encode(
-      array('message' => 'Category Not Created')
-    );
-  }
+} else {
+  echo json_encode(
+    array('message' => 'Category Not Created')
+  );
+}

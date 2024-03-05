@@ -23,7 +23,7 @@
 
     $author->name = $data->name;
     $post_arr = array(
-      'id'=> $author->id,
+      'id'=> $author->create(),
       'author'=> $author->name,
       
   );
@@ -35,6 +35,6 @@
   
   } else {
     echo json_encode(
-      array('message' => 'Post Not Created')
+      array('message' => 'Author Not Created')
     );
   }

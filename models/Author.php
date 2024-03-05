@@ -74,10 +74,12 @@ class Author{
 
     // Clean data
     $this->name = htmlspecialchars(strip_tags($this->name));
+ 
     
 
     // Bind data
     $stmt->bindParam(':name', $this->name);
+   
     
     
 
@@ -85,7 +87,8 @@ class Author{
 
     // Execute query
     if($stmt->execute()) {
-      return true;
+      $idResource = $stmt->fetchColumn();
+      return $idResource;
 }
 
 // Print error if something goes wrong

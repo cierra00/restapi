@@ -69,7 +69,7 @@ class Category{
     #Create Category
      public function create() {
       // Create query
-      $query = 'INSERT INTO ' . $this->table . '(name) VALUES (:name)';
+      $query = 'INSERT INTO ' . $this->table . '(name) VALUES (:name) RETURNING id';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -87,7 +87,8 @@ class Category{
 
       // Execute query
       if($stmt->execute()) {
-        return true;
+        $idResource = $stmt->fetchColumn();
+      return $idResource;
   }
 
   // Print error if something goes wrong
