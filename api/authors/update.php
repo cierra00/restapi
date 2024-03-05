@@ -33,7 +33,7 @@
   if($author->update()) {
     echo json_encode(
       array('id' => $data->id,
-      "author"=> $data->name
+      'author' => $data->name
       )
     );
   } else {
