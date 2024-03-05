@@ -28,7 +28,7 @@
 
     /* Category Object */
 
-    $category = new Author($db);
+    $author = new Author($db);
 
     // Handle ID from parameter in URL
     if ($method === 'GET') {
