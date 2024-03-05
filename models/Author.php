@@ -36,7 +36,7 @@ class Author{
     public function read_single(){
       
          #create query
-          $query = 'SELECT id, name as author
+          $query = 'SELECT id, name
                                     FROM ' . $this->table . '                                    
                                     WHERE
                                     id = ?';
@@ -56,7 +56,7 @@ class Author{
         #Set Properties
      if($row){
       $this->id = $row['id'];
-      $this->name = $row['category'];
+      $this->name = $row['name'];
       } else {
         $this->id = null;
         $this->name = null;
