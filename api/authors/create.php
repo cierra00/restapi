@@ -22,13 +22,16 @@
   
 
     $author->name = $data->name;
-  
+    $post_arr = array(
+      'id'=> $author->id,
+      'author'=> $author->name,
+      
+  );
   
   // Create author
   if($author->create()&& $data !== null ) {
-    echo json_encode(
-      array('id'=> $author->create())
-    );
+    print_r(json_encode($post_arr));
+    
   
   } else {
     echo json_encode(
