@@ -32,8 +32,7 @@
   // Create category
   if($category->update()) {
     echo json_encode(
-      array('id' => $category->id,
-      'category'=> $category->name)
+      array('message' => 'Category updated')
     );
   } else {
     echo json_encode(
