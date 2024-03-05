@@ -32,7 +32,9 @@
   // Create category
   if($category->update()) {
     echo json_encode(
-      array('message' => 'Author updated')
+      array('id' => $data->id,
+      "author"=> $data->name
+      )
     );
   } else {
     echo json_encode(

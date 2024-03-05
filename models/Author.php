@@ -54,15 +54,17 @@ class Author{
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         #Set Properties
-        if($row){
-        $this->id = $row['id'];
-        $this->name = $row['author'];
-        }
-
-        return $row;
-
-
-    }
+     if($row){
+      $this->id = $row['id'];
+      $this->name = $row['category'];
+      } else {
+        $this->id = null;
+        $this->name = null;
+        
+      }
+ 
+     
+  }
 
    #Create Category
    public function create() {
