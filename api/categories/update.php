@@ -37,6 +37,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Category Not updated')
+      array('message' => 'Missing Required Parameters')
     );
   }

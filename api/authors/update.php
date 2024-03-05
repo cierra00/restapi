@@ -38,6 +38,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Author Not updated')
+      array('message' => 'Missing Required Parameters')
     );
   }
