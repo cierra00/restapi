@@ -29,7 +29,7 @@
   $author->name = $data->name;
   
 
-  // Create author
+  // Create author from db
   if($author->update()) {
     echo json_encode(
       array('id' => $data->id,
