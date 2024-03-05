@@ -29,18 +29,14 @@
     $category = new Quote($db);
 
     // Handle ID from parameter in URL
-    if ($method === 'GET' ||  'DELETE') {
+    if ($method === 'GET') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
- echo $method;
 
-  if ($method === 'GET' && !$id) { require_once('read.php');  };
-  if ($method === 'GET' && $id) { require_once('read_single.php'); echo $method. "sucks"; };
+
+  if ($method === 'GET' && !$id) { require_once('read.php'); };
+  if ($method === 'GET' && $id) { require_once('read_single.php'); };
   if ($method === 'POST') { require_once('create.php'); };
   if ($method === 'PUT' && $id) { require_once('update.php'); };
-  if ($method === 'DELETE') { require_once('delete.php');} 
-  else {
-  
-    echo "You Broke it ". $method;
-}
+  if ($method === 'DELETE') { require_once('delete.php'); };
