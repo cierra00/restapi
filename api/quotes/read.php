@@ -45,7 +45,7 @@
 
       // Push to "data"
       array_push($quotes, $post_item);
-      // array_push($quotes['data'], $post_item);
+      array_push($quotes['data'], $post_item);
     }
 
     // Turn to JSON & output
