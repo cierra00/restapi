@@ -129,7 +129,6 @@ printf("Error: %s.\n", $stmt->error);
 return false;
 }
 
-
 #Delete Category
 public function delete(){
   #query

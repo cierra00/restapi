@@ -29,11 +29,12 @@
   $category->name = $data->name;
   
 
-  // Create category
+  // Create category from db
   if($category->update()) {
     echo json_encode(
       array('id' => $data->id,
-      'category'=> $data->name)
+      'category' => $data->name
+      )
     );
   } else {
     echo json_encode(
