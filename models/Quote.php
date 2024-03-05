@@ -73,7 +73,7 @@ class Quote{
     #Create Quote
      public function create() {
       // Create query
-      $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id) VALUES (:quote, :author_id, :category_id RETURNING id, author_id, category_id';
+      $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id) VALUES (:quote, :author_id, :category_id ) RETURNING id, quote, author_id, category_id';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -94,8 +94,7 @@ class Quote{
 
       // Execute query
       if($stmt->execute()) {
-        $idResource = $stmt->fetchColumn();
-        return $idResource;
+        return true;
   }
 
   // Print error if something goes wrong
