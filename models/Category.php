@@ -36,7 +36,7 @@ class Category{
     public function read_single(){
       
       #create query
-       $query = 'SELECT id, name 
+       $query = 'SELECT id, name as category
                                  FROM ' . $this->table . '                                    
                                  WHERE
                                  id = ?';
@@ -56,7 +56,7 @@ class Category{
      #Set Properties
      if($row){
      $this->id = $row['id'];
-     $this->name = $row['name'];
+     $this->name = $row['category'];
      } else {
        $this->id = null;
        $this->name = null;

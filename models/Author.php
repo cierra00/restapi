@@ -55,14 +55,16 @@ class Author{
 
         #Set Properties
         if($row){
-        $this->id = $row['id'];
-        $this->name = $row['author'];
-        }
-
-        return $row;
-
-
-    }
+          $this->id = $row['id'];
+          $this->name = $row['author'];
+          } else {
+            $this->id = null;
+            $this->name = null;
+            
+          }
+     
+         
+      }
 
    #Create Category
    public function create() {
