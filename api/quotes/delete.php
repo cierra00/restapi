@@ -35,6 +35,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Quote Not Deleted')
+      array('message' => 'No Quotes Found')
     );
   }
