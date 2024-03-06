@@ -146,8 +146,8 @@ public function delete(){
 
 #Execute Query
 if($stmt->execute()){
-  return true;
-}
+  $send_id= array('id'=>$this->id);
+  return  $send_id;
 
 // Print error if something goes wrong
 printf("Error: %s.\n", $stmt->error);

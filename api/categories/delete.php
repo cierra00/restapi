@@ -30,9 +30,7 @@
 
   //Delete category
   if($category->delete()) {
-    echo json_encode(
-      array('message' => 'Category Deleted')
-    );
+    echo json_encode($category->delete());
   } else {
     echo json_encode(
       array('message' => 'Category Not Deleted')

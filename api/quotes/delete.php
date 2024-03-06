@@ -30,11 +30,9 @@
 
   //Delete quote
   if($quote->delete()) {
-    echo json_encode(
-      array('message' => 'Quote Deleted')
-    );
+    echo json_encode($quote->delete());
   } else {
     echo json_encode(
-      array('message' => 'Quote Not Deleted')
+      array('message' => 'No Quotes Found')
     );
   }
