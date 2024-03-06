@@ -39,6 +39,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'does not work')
+      array('message' => 'Missing Required Parameters')
     );
   }
