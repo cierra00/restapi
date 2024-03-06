@@ -149,6 +149,8 @@ if($stmt->execute()){
   $send_id= array('id'=>$this->id);
   return  $send_id;
 
+}
+
 // Print error if something goes wrong
 printf("Error: %s.\n", $stmt->error);
 }
