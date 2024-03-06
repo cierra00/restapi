@@ -1,48 +1,41 @@
-<?php
+<?php 
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
+  header('Access-Control-Allow-Methods: POST');
+  header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
-#headers
-header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
-    $method = $_SERVER['REQUEST_METHOD'];
+  include_once '../../config/Database.php';
+  include_once '../../models/Quote.php';
 
-    if ($method === 'OPTIONS') {
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
-        exit();
-    }
-include_once '../../config/Database.php';
-include_once '../../models/Quote.php';
-
-//Instantiate DB & Connect
-
-$database = new Database();
-$db = $database->connect();
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
 
 
-//Instantiate Blog Quote
-$quote = new Quote($db);
+  // Instantiate blog quote object
+  $quote = new Quote($db);
 
-#Get Raw Posted Data
-$data = json_decode(file_get_contents("php://input"));
+  // Get raw posted data
+  $data = json_decode(file_get_contents("php://input"));
 
-$quote->quote = $data->quote;
-//$quote->id = $data->id;
-//$quote->author_id = $data->author_id;
-//$quote->category_id = $data->category_id;
+  $quote->quote = $data->quote;
+  $quote->author_id = $data->author_id;
+  $quote->category_id = $data->category_id;
 
-$post_arr = array(
-  'id'=> $quote->create(),
-  'quote'=> $quote->quote,
-  
+  $post_arr = array(
+    'id'=> $quote->create(),
+    'quote'=> $quote->quote,
+    'category_id'=>$quote->category_id,
+    'author_id' =>$quote->author_id    
 );
-
-// Create quote
-if($quote->create()&& $data !== null ) {
-print_r(json_encode($post_arr));
-
-
-} else {
-echo json_encode(
-  array('message' => 'Missing Required Parameters')
-);
-}
+  // Create quote
+  if($quote->create()) {
+    echo json_encode(
+      array('id'=>$quote->create())
+    );
+  } else {
+    echo json_encode(
+      array('message' => 'does not work')
+    );
+  }

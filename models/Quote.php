@@ -71,30 +71,29 @@ class Quote{
     }
 
     #Create Quote
-     public function create() {
+      // Create Post
+    public function create() {
       // Create query
-      $query = 'INSERT INTO ' . $this->table . ' (quote, author_id, category_id) VALUES (:quote, :author_id, :category_id )';
+      $query = 'INSERT INTO quotes (quote, category_id, author_id)
+      VALUES (:quote, :category_id, :author_id) RETURNING id';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
 
       // Clean data
       $this->quote = htmlspecialchars(strip_tags($this->quote));
-      //$this->id = htmlspecialchars(strip_tags($this->id));
       $this->author_id = htmlspecialchars(strip_tags($this->author_id));
       $this->category_id = htmlspecialchars(strip_tags($this->category_id));
-      //$this->author_name = htmlspecialchars(strip_tags($this->author_name));
 
       // Bind data
       $stmt->bindParam(':quote', $this->quote);
-      //$stmt->bindParam(':id', $this->id);
       $stmt->bindParam(':author_id', $this->author_id);
       $stmt->bindParam(':category_id', $this->category_id);
-      //$stmt->bindParam(':author_name', $this->author_name);
 
-      // Execute query
-      if($stmt->execute()) {
-        return true;
+       // Execute query
+       if($stmt->execute()) {
+        $idResource = $stmt->fetchColumn();
+      return $idResource;
   }
 
   // Print error if something goes wrong
@@ -102,6 +101,7 @@ class Quote{
 
   return false;
 }
+
 
 
 
@@ -127,9 +127,9 @@ public function update() {
   $stmt->bindParam(':author_id', $this->author_id);
   $stmt->bindParam(':category_id', $this->category_id);
 
-  // Execute query
   if($stmt->execute()) {
-    return true;
+    $idResource = $stmt->fetchColumn();
+  return $idResource;
 }
 
 // Print error if something goes wrong
