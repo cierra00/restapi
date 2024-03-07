@@ -34,7 +34,9 @@
       echo json_encode(
         array('message' => 'No Quotes Found')
       );
-    echo json_encode($quote->delete());
+      exit();
+    ;}
+   echo json_encode($quote->delete());
   } else {
     echo json_encode(
       array('message' => 'No Quotes Found')
