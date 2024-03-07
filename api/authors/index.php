@@ -14,6 +14,7 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
+  include_once './utility/isValid.php';
 
 
      /* Initialization of variables*/
