@@ -30,13 +30,15 @@
 
   //Delete quote
   if($quote->delete()) {
-    if(!$quote->read_single()){
+    if($quote->read_single()){
+      echo json_encode($quote->delete());      
+    } else {
       echo json_encode(
         array('message' => 'No Quotes Found')
       );
       exit();
-    ;}
-   echo json_encode($quote->delete());
+    }
+  
   } else {
     echo json_encode(
       array('message' => 'No Quotes Found')
