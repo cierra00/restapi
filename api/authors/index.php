@@ -14,7 +14,6 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
-  include_once './utility/isValid.php';
 
 
      /* Initialization of variables*/
@@ -40,16 +39,7 @@
     $data = json_decode(file_get_contents("php://input"));
     if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
  
-    if($method !== 'POST' && $id){
-      if(!isValid($id, $author)){
-       
-          echo json_encode(
-              array('message' => 'author_id Not Found')
-          );
-        
-      
-      }
-    }
+    
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
