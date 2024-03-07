@@ -33,12 +33,6 @@
  if($data->quote){
   try{
     $quote->create();
-    if($post_arr['author_id'] === null){
-      echo json_encode(
-        array('message' => 'author_id Not Found')
-      );
-    }
-    
     echo json_encode($post_arr);
   } catch (PDOException $e){
     echo json_encode(array('message'=> $e->getMessage()));
