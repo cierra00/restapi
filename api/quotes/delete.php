@@ -29,6 +29,12 @@
   
 
   //Delete quote
+  if(!$quote->read_single()){
+    echo json_encode(
+      array('message' => 'No Quotes Found')
+    );
+  }
+
   if($quote->delete()) {
     echo json_encode($quote->delete());
   } else {
