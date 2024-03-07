@@ -41,12 +41,12 @@
  
     if($method !== 'POST' && $id){
       if(!isValid($id, $author)){
-        if (!$authorExists) { 
+       
           echo json_encode(
               array('message' => 'author_id Not Found')
           );
         
-      }
+      
       }
     }
 
