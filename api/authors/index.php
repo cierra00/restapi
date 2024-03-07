@@ -34,12 +34,10 @@
     if ($method === 'GET') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
-  
-    // handle data coming in from the request
+   
     $data = json_decode(file_get_contents("php://input"));
     if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
  
-    
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
