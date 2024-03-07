@@ -41,15 +41,7 @@
     if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
 
 
-    if (($method !== 'POST' || $method !== 'GET') && $id) {
-      $authorExists = isValid($id, $author);
-      if (!$authorExists) { 
-          echo json_encode(
-              array('message' => 'author_id Not Found')
-          );
-          exit();
-      }
-  }
+   
  
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
