@@ -42,14 +42,10 @@
     }
    
 if($method !== 'DELETE' ){
-    if($data->category_id !== $quote->category_id){
+  
      $result = $category_id->read_single();
-     if(!$result)
-     echo json_encode(
-        array('message' => 'category_id Not Found')
-    );
-    exit();
-    }
+    echo ($result);
+    
 }
 
    
