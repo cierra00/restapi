@@ -12,11 +12,7 @@
     'author_id' =>$quote->author_id    
 );
   // Create quote
-  if (
-    !empty($data->quote) && 
-    !empty($author_id) && 
-    !empty($category_id) 
-    ) {
+  if ($category_id ) {
   
         $quote->quote = $data->quote;
         $quote->author_id = $author_id;
