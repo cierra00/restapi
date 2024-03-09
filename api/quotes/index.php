@@ -41,7 +41,13 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-
+if($method=== 'DELETE' || $Method==='PUT'){
+    if($data->id === $quote->read_single()){
+        echo json_encode(
+            array('message' => 'No Quotes Found')
+        );
+    }
+}
     
    
   if ($method === 'GET' && !$id) { require_once('read.php'); };
