@@ -35,7 +35,7 @@ if (!empty($data->category)) {
 
   try {
       $result = $category->create();
-      echo json_encode($result);
+      echo json_encode($post_arr);
   } catch (Exception $e) {
       echo json_encode(
           array('message' => $e->getMessage())
