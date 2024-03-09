@@ -9,7 +9,7 @@ class Category{
     # Category Properties
     public $id;
     public $name;
-   
+   public $category;
 
 
     #constructor with DB
@@ -111,16 +111,20 @@ public function update() {
 
   // Clean data
   $this->id = htmlspecialchars(strip_tags($this->id));
-  $this->name = htmlspecialchars(strip_tags($this->name));
+  $this->category = htmlspecialchars(strip_tags($this->category));
  
 
   // Bind data
   $stmt->bindParam(':id', $this->id);
-  $stmt->bindParam(':name', $this->name);
-
+  $stmt->bindParam(':name', $this->category);
+ $post_arr = array();
   // Execute query
   if($stmt->execute()) {
-    return true;
+    $post_arr = array(
+      'id'=> $this->id,
+      'category'=> $this->category,       
+  );
+  return $post_arr;
 }
 
 // Print error if something goes wrong
@@ -128,7 +132,6 @@ printf("Error: %s.\n", $stmt->error);
 
 return false;
 }
-
 #Delete Category
 public function delete(){
   #query

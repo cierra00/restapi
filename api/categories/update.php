@@ -1,43 +1,38 @@
 <?php 
-  // Headers
-  header('Access-Control-Allow-Origin: *');
-  header('Content-Type: application/json');
-  $method = $_SERVER['REQUEST_METHOD'];
-
-  if ($method === 'OPTIONS') {
-      header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-      header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
-      exit();
-  }
-
-  include_once '../../config/Database.php';
-  include_once '../../models/Category.php';
-
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
-
-  // Instantiate blog category object
-  $category = new Category($db);
-
-  // Get raw category data
-  $data = json_decode(file_get_contents("php://input"));
-
-  //set id to update
-
+ 
+   //set id to update
+   if (
+    !empty($data->category) && !empty($id)
+    ) {
+    }
   $category->id = $data->id;
-  $category->name = $data->name;
+  $category->category = $data->category;
+  
+  
   
 
-  // Create category from db
-  if($category->update()) {
-    echo json_encode(
-      array('id' => $data->id,
-      'category' => $data->name
-      )
+  // Create category
+  if (
+    !empty($data->category) && 
+    
+    !empty($id)
+    ) { try{
+      $output = $category->update();
+      echo json_encode($output);
+    } catch(Exception $e){
+      echo json_encode(
+        array('message' => $e->getMessage())
     );
-  } else {
-    echo json_encode(
-      array('message' => 'Missing Required Parameters')
-    );
+    }}  else {
+      echo json_encode(
+          array('message' => 'Missing Required Parameters')
+      );
   }
+  
+ 
+    
+  // } else {
+  //   echo json_encode(
+  //     array('message' => 'Missing Required Parameters')
+  //   );
+  // }
