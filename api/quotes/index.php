@@ -18,9 +18,8 @@
 
 
      /* Initialization of variables*/
-     $id = null;
-     $author_id = null;
-     $category_id = null;
+      $id = null;
+     
 
      
 
@@ -37,9 +36,10 @@
 
 
     // Handle ID from parameter in URL
-    if ($method === 'GET' ) {
+    if ($method === 'GET' ||$method = 'DELETE') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-       
+        $author_id = filter_input(INPUT_GET, 'author_id', FILTER_VALIDATE_INT);
+        $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
     }
 
      // DELETE and UPDATE/PUT need to validate the (quote) id parameter
