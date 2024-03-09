@@ -24,7 +24,7 @@
   $quote->category_id = $data->category_id;
 
   $post_arr = array(
-    #'id'=> $quote->create(),
+    'id'=> $quote->create(),
     'quote'=> $quote->quote,
     'category_id'=>$quote->category_id,
     'author_id' =>$quote->author_id    
@@ -35,7 +35,7 @@
     !empty($author_id) && 
     !empty($category_id) 
     ) {
-
+  
         $quote->quote = $data->quote;
         $quote->author_id = $author_id;
         $quote->category_id = $category_id;
