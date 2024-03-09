@@ -8,14 +8,21 @@
   
 
   // Create category from db
-  if($category->update()) {
-    echo json_encode(
-      array('id' => $data->id,
-      'category' => $data->name
-      )
+  if (
+    !empty($data->category) && 
+    !empty($author_id) && 
+    !empty($category_id) && 
+    !empty($id)
+    ) { try{
+      $output = $category->update();
+      echo json_encode($output);
+    } catch(Exception $e){
+      echo json_encode(
+        array('message' => $e->getMessage())
     );
-  } else {
-    echo json_encode(
-      array('message' => 'Missing Required Parameters')
-    );
+    }}  else {
+      echo json_encode(
+          array('message' => 'Missing Required Parameters')
+      );
   }
+  
