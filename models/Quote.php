@@ -67,7 +67,7 @@ class Quote{
         $this->author_name =$row['author_name'];
        }
 
-       return $stmt;
+       return $row;
 
     }
 
