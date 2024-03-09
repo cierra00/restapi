@@ -135,7 +135,7 @@ $post_arr = array();
       'author_id'=> $this->author_id,
       #'category'=> $this->category_name,
       'category_id'=> $this->category_id,
-      #'author' => $this->author_name   
+      'author' => $this->author_name   
   
   );
   return $post_arr;

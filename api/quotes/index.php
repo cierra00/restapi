@@ -10,7 +10,8 @@
     require_once('../../config/Database.php');
     require_once('../../models/Quote.php');
     require_once('../../models/Author.php');
-    require_once('../../models/Category.php');   
+    require_once('../../models/Category.php');  
+    require_once('../../functions/isValid.php'); 
 
 
      /* Initialization of variables*/
@@ -42,9 +43,12 @@
     }
    
 if($method !== 'DELETE' ){
-  
-     $result = $category_id->read_single();
-    echo ($result);
+    
+   $quote->category_id = $data->category_id;
+
+    if($quote->category_id){
+        echo $quote->category_id;
+    }
     
 }
 
