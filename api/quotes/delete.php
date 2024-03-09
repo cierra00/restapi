@@ -40,6 +40,7 @@
 
   $quoteExists = isValid($id, $quote);
         if ($quoteExists) { 
+          $quote->delete();
           echo json_encode($quote->delete());
           
         } else {
