@@ -44,15 +44,7 @@
     }
 
      // DELETE and UPDATE/PUT need to validate the (quote) id parameter
-     if ($method === 'DELETE' || $method === 'PUT') {
-        $idExists = isValid($id, $quote);
-        if (!$idExists) { 
-            echo json_encode(
-                array('message' => 'No Quotes Found')
-            );
-            
-        }
-    }
+    
    
 
 
