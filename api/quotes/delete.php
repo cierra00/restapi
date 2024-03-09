@@ -24,22 +24,24 @@
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
 
+
   //set id to update
 
   $quote->id = $data->id;
+  $id= $data->id;
   
   $idExists = isValid($id, $quote);
   if (!$idExists) { 
       echo json_encode(
           array('message' => 'No Quotes Found')
       );
-    
+      exit();
   }
   //Delete quote
   if($quote->delete()) {
     echo json_encode($quote->delete());
   } else {
     echo json_encode(
-      array('message' => 'No Quotes Found')
+      array('message' => 'No Quotdes Found')
     );
   }
