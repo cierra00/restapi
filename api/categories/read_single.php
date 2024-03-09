@@ -17,7 +17,7 @@ if($category->id){
     print_r(json_encode($post_arr));
     } else {
         echo json_encode(
-            array('message' => 'author_id Not Found')
+            array('message' => 'category_id Not Found')
           );
     }
 ?>
