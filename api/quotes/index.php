@@ -29,7 +29,7 @@
     $category = new Quote($db);
 
     // Handle ID from parameter in URL
-    if ($method === 'GET') {
+    if ($method === 'GET' ||$method = 'DELETE') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    

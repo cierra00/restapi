@@ -12,6 +12,7 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Quote.php';
+  include_once '../../functions/isValid.php';
 
   // Instantiate DB & connect
   $database = new Database();
@@ -29,8 +30,15 @@
   
 
   //Delete quote
-  if($quote->delete()) {
+  $idExists = isValid($id, $quote);
+  if($idExists){
+    $quote->delete();
     echo json_encode($quote->delete());
   } else {
-   $quote->read_single(); 
-  }
+    
+        echo json_encode(
+            array('message' => 'No Quotes Found')
+        );
+      
+    }
+  
