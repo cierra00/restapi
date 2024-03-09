@@ -30,16 +30,27 @@
     'author_id' =>$quote->author_id    
 );
   // Create quote
- if($data->quote){
-  try{
-    $quote->create();
-    echo json_encode($post_arr);
-  } catch (PDOException $e){
-    echo json_encode(array('message'=> $e->getMessage()));
-  }
-  
- } else {
-    echo json_encode(
-      array('message' => 'Missing Required Parameters')
-    );
-  }
+  if (
+    !empty($data->quote) && 
+    !empty($author_id) && 
+    !empty($category_id) 
+    ) {
+
+        $quote->quote = $data->quote;
+        $quote->author_id = $author_id;
+        $quote->category_id = $category_id;
+        
+        try {
+            $result = $quote->create();
+            echo json_encode($post_arr);
+        } catch (Exception $e) {
+            echo json_encode(
+                array('message' => $e->getMessage())
+            );
+        }
+    }   else {
+        echo json_encode(
+            array('message' => 'Missing Required Parameters')
+        );
+    }
+    exit();
