@@ -25,7 +25,7 @@
       $output = $quote->update();
       echo json_encode($output);
     } catch(Exception $e){
-      echo json_encode(array('message'=> 'author_id Not Found'), $author_id);
+      echo json_encode(array('message1'=> 'author_id Not Found', 'message'=> 'category_id Not Found'));
     }}  else {
       echo json_encode(
           array('message' => 'Missing Required Parameters')
