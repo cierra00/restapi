@@ -7,6 +7,7 @@
   $method = $_SERVER['REQUEST_METHOD'];
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
+  include_once '../../functions/isValid.php';
 
   // Instantiate DB & connect
   $database = new Database();
@@ -18,7 +19,18 @@
   // Get raw posted data
  
   $data = json_decode(file_get_contents("php://input"));
-
+  if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
+    
+  // All methods except POST need to confirm the id if submitted
+  if ($method !== 'POST' && $id) {
+      $authorExists = isValid($id, $author);
+      if (!$authorExists) { 
+          echo json_encode(
+              array('message' => 'author_id Not Found')
+          );
+          exit();
+      }
+  }
   
 
     $author->name = $data->name;
