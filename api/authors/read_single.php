@@ -2,12 +2,6 @@
 
 
 
-$database = new Database();
-$db = $database->connect();
-
-
-//Instantiate Blog Author
-$author = new Author($db);
 
 
 #get ID from URL
