@@ -9,10 +9,7 @@
 
   // Create category from db
   if (
-    !empty($data->category) && 
-    !empty($author_id) && 
-    !empty($category_id) && 
-    !empty($id)
+    !empty($data->name)  && !empty($id)
     ) { try{
       $output = $category->update();
       echo json_encode($output);
