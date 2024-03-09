@@ -14,7 +14,7 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Author.php';
- 
+  require_once('../../functions/isValid.php');
 
 
 
@@ -37,6 +37,24 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
+
+
+    // Parameters sent with POST, PUT, and DELETE methods
+    $data = json_decode(file_get_contents("php://input"));
+    if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
+    
+    // All methods except POST need to confirm the id if submitted
+    if ($method !== 'POST' && $id) {
+        $authorExists = isValid($id, $author);
+        if (!$authorExists) { 
+            echo json_encode(
+                array('message' => 'author_id Not Found')
+            );
+            exit();
+        }
+    }
+
+    
     $data = json_decode(file_get_contents("php://input"));
     if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
 
