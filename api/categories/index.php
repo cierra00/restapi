@@ -1,5 +1,5 @@
 <?php 
-   // Headers
+  // Headers
  
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
@@ -17,10 +17,12 @@
 
 
 
+
      /* Initialization of variables*/
      $id = null;
 
      
+
     /* Database Connection */
 
     $database = new Database();
@@ -39,8 +41,11 @@
     if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
 
 
-  if ($method === 'GET' && !$id) { require_once('read.php'); }
-  if ($method === 'GET' && $id) { require_once('read_single.php'); }
-  if ($method === 'POST') { require_once('create.php'); }
-  if ($method === 'PUT' && $id) { require_once('update.php'); }
-  if ($method === 'DELETE' && $id !== null) { require_once('delete.php'); }
+    
+ 
+
+  if ($method === 'GET' && !$id) { require_once('read.php'); };
+  if ($method === 'GET' && $id) { require_once('read_single.php'); };
+  if ($method === 'POST') { require_once('create.php'); };
+  if ($method === 'PUT' && $id) { require_once('update.php'); };
+  if ($method === 'DELETE' && $id !== null) { require_once('delete.php'); };
