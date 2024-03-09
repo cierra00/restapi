@@ -36,7 +36,7 @@
     }
    
     $data = json_decode(file_get_contents("php://input"));
-    
+    if (!empty($data->id) && $method !== 'GET') { $id = $data->id; }
 
 
   if ($method === 'GET' && !$id) { require_once('read.php'); }
