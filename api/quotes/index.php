@@ -20,7 +20,8 @@
      /* Initialization of variables*/
      $id = null;
 
-     
+   // Get raw posted data
+  $data = json_decode(file_get_contents("php://input"));
 
     /* Database Connection */
 

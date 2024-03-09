@@ -1,16 +1,5 @@
 <?php
 
-
-
-
-//Instantiate DB & Connect
-
-
-
-//Instantiate Blog Post
-
-
-
 #get ID from URL
 $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
