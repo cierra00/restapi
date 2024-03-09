@@ -2,11 +2,6 @@
 
 
 
-
-
-#get ID from URL
-$category->id = isset($_GET['id']) ? $_GET['id'] : die();
-
 #Get Category 
 $category->read_single();
 
