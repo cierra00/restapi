@@ -35,13 +35,13 @@
       echo json_encode(
           array('message' => 'No Quotes Found')
       );
-      exit();
+      
   }
   //Delete quote
   if($quote->delete()) {
     echo json_encode($quote->delete());
   } else {
     echo json_encode(
-      array('message' => 'No Quotdes Found')
+      array('message' => 'No Quotes Found')
     );
   }
