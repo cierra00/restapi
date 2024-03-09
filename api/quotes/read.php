@@ -35,6 +35,6 @@
   } else {
     // No Posts
     echo json_encode(
-      array('message' => 'No Posts Found')
+      array('message' => 'No Quotes Found')
     );
   }
