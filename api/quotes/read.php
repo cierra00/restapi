@@ -28,7 +28,7 @@
   // Check if any Quotes
   if($num > 0) {
     // Post array
-    $quotes = array();
+    $quote = array();
     // $quotes['data'] = array();
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -44,12 +44,12 @@
       );
 
       // Push to "data"
-      array_push($quotes, $post_item);
+      array_push($quote, $post_item);
       // array_push($quotes['data'], $post_item);
     }
 
     // Turn to JSON & output
-    echo json_encode($quotes);
+    echo json_encode($quote);
 
   } else {
     // No Posts

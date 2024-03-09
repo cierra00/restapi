@@ -1,43 +1,31 @@
 <?php
 
-#headers
-header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
-    $method = $_SERVER['REQUEST_METHOD'];
 
-    if ($method === 'OPTIONS') {
-        header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-        header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
-        exit();
-    }
-include_once '../../config/Database.php';
-include_once '../../models/Quote.php';
+
 
 //Instantiate DB & Connect
 
-$database = new Database();
-$db = $database->connect();
 
 
 //Instantiate Blog Post
-$quotes = new Quote($db);
+
 
 
 #get ID from URL
-$quotes->id = isset($_GET['id']) ? $_GET['id'] : die();
+$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 #Get Post 
-$quotes->read_single();
+$quote->read_single();
 
 
 #create array
 $post_arr = array(
-    'id'=> $quotes->id,
-    'quote'=> $quotes->quote,
-    #'author_id'=> $quotes->author_id,
-    'category'=> $quotes->category_name,
-    #'category_id'=> $quotes->category_id,
-    'author' => $quotes->author_name   
+    'id'=> $quote->id,
+    'quote'=> $quote->quote,
+    #'author_id'=> $quote->author_id,
+    'category'=> $quote->category_name,
+    #'category_id'=> $quote->category_id,
+    'author' => $quote->author_name   
 
 );
 

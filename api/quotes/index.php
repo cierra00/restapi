@@ -29,7 +29,9 @@
 
     /* Category Object */
 
-    $category = new Quote($db);
+    $quote = new Quote($db);
+    $authors = new Author($db);
+    $category = new Category($db);
 
     // Handle ID from parameter in URL
     if ($method === 'GET') {
