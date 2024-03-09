@@ -42,7 +42,7 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-if($method !== 'DELETE' ){
+if($method === 'POST' ){
     
   $id_exists = isValid($category_id, $category);
     if(!$id_exists){
