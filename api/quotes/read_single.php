@@ -1,7 +1,7 @@
 <?php
 
 #get ID from URL
-$quote->id = $id;
+$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 #Get Post 
 $quote->read_single();
