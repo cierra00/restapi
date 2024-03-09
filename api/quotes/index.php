@@ -15,11 +15,17 @@
 
      /* Initialization of variables*/
      $id = null;
-
-   // Get raw posted data
-    $data = json_decode(file_get_contents("php://input"));
-
-    /* Database Connection */
+     $author_id = null;
+     $category_id = null;
+     $random = null;
+     
+   $data = json_decode(file_get_contents("php://input"));
+   if (!empty($data->id) && $method !== 'GET')  { $id = $data->id; };
+   if (!empty($data->author_id) && $method !== 'GET')  { $author_id = $data->author_id; };
+   if (!empty($data->category_id) && $method !== 'GET')  { $category_id = $data->category_id; };
+    
+   
+   /* Database Connection */
 
     $database = new Database();
     $db = $database->connect();
@@ -27,7 +33,7 @@
     /* Category Object */
 
     $quote = new Quote($db);
-    $authors = new Author($db);
+    $author = new Author($db);
     $category = new Category($db);
 
     // Handle ID from parameter in URL

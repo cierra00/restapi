@@ -76,7 +76,7 @@ class Quote{
     public function create() {
       // Create query
       $query = 'INSERT INTO quotes (quote, category_id, author_id)
-      VALUES (:quote, :category_id, :author_id) RETURNING id';
+      VALUES (:quote, :category_id, :author_id) RETURNING *';
 
       // Prepare statement
       $stmt = $this->conn->prepare($query);
@@ -110,8 +110,8 @@ class Quote{
 #Update Quote
 public function update() {
   // Create query
-  $query = 'UPDATE ' . $this->table . ' SET quote = :quote, id = :id, author_id = :author_id, category_id = :category_id
-  WHERE id = :id';
+  $query = "UPDATE " . $this->table . " SET quote = :quote, id = :id, author_id = :author_id, category_id = :category_id
+  WHERE id = :id";
 
   // Prepare statement
   $stmt = $this->conn->prepare($query);
@@ -127,10 +127,18 @@ public function update() {
   $stmt->bindParam(':quote', $this->quote);
   $stmt->bindParam(':author_id', $this->author_id);
   $stmt->bindParam(':category_id', $this->category_id);
-
+$post_arr = array();
   if($stmt->execute()) {
-    $idResource = $stmt->fetchColumn();
-  return $idResource;
+    $post_arr = array(
+      'id'=> $this->id,
+      'quote'=> $this->quote,
+      'author_id'=> $this->author_id,
+      #'category'=> $this->category_name,
+      'category_id'=> $this->category_id,
+      #'author' => $this->author_name   
+  
+  );
+  return $post_arr;
 }
 
 // Print error if something goes wrong
