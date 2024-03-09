@@ -121,7 +121,7 @@ public function update() {
   if($stmt->execute()) {
     $post_arr = array(
       'id'=> $this->id,
-      'name'=> $this->name,       
+      'author'=> $this->name,       
   );
   return $post_arr;
 }
