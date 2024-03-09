@@ -41,12 +41,12 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-if($method=== 'DELETE' || $Method==='PUT'){
+if($method=== 'DELETE' || $method==='PUT'){
     if($data->id !== $quote->id){
         $quote->read_single();
     }
 }
-if($method=== 'POST' || $Method==='PUT'){
+if($method=== 'POST' || $method==='PUT'){
     if($data->author_id !== $quote->author_id){
         echo json_encode(array('message'=> 'author_id Not Found'));
     }
