@@ -42,10 +42,8 @@
     }
    
 if($method=== 'DELETE' || $Method==='PUT'){
-    if($data->id === $quote->read_single()){
-        echo json_encode(
-            array('message' => 'No Quotes Found')
-        );
+    if($data->id === $quote->id){
+        $quote->read_single();
     }
 }
     
