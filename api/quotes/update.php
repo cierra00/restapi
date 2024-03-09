@@ -19,9 +19,9 @@
   $post_arr = array(
     'id'=> $quotes->id,
     'quote'=> $quotes->quote,
-    #'author_id'=> $quotes->author_id,
+    'author_id'=> $quotes->author_id,
     'category'=> $quotes->category_name,
-    #'category_id'=> $quotes->category_id,
+    'category_id'=> $quotes->category_id,
     'author' => $quotes->author_name   
 
 );
@@ -33,6 +33,6 @@
     );
   } else {
     echo json_encode(
-      array('message' => 'Quote Not updated')
+      array('message' => 'Missing Required Parameters')
     );
   }
