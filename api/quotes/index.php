@@ -11,12 +11,16 @@
 
     require_once('../../config/Database.php');
     require_once('../../models/Quote.php');
+    require_once('../../models/Category.php');
+    require_once('../../models/Author.php');
     require_once('../../functions/isValid.php');
    
 
 
      /* Initialization of variables*/
      $id = null;
+     $author_id = null;
+     $category_id = null;
 
      
 
@@ -27,11 +31,16 @@
 
     /* Category Object */
 
-    $category = new Quote($db);
+    $quote = new Quote($db);
+    $author = new Author($db);
+    $category = new Category($db);
+
 
     // Handle ID from parameter in URL
     if ($method === 'GET' ||$method = 'DELETE') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $author_id = filter_input(INPUT_GET, 'author_id', FILTER_VALIDATE_INT);
+        $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
     }
 
      // DELETE and UPDATE/PUT need to validate the (quote) id parameter
