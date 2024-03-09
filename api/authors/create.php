@@ -47,6 +47,6 @@
   
   } else {
     echo json_encode(
-      array('message' => 'Missing Required Parameters')
+      array('message' => 'author_id Not Found')
     );
   }
