@@ -51,13 +51,12 @@ if($method === 'POST'){
     echo json_encode(
         array('message' => 'author_id Not Found')
     );
-    exit();
-   }
+    
    if($data->category_id !== $quote->category_id ){
     echo json_encode(
         array('message' => 'category_id Not Found')
     );
-    exit();
+   
    }
    
 }
