@@ -2,18 +2,18 @@
  
    //set id to update
    if (
-    !empty($data->name) && !empty($id)
+    !empty($data->author) && !empty($id)
     ) {
     }
   $author->id = $data->id;
-  $author->name = $data->name;
+  $author->author = $data->author;
   
   
   
 
   // Create author
   if (
-    !empty($data->name) && 
+    !empty($data->author) && 
     
     !empty($id)
     ) { try{

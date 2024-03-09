@@ -9,6 +9,7 @@ class Author{
     # Author Properties
     public $id;
     public $name;
+    public $author;
    
 
 
@@ -110,18 +111,18 @@ public function update() {
 
   // Clean data
   $this->id = htmlspecialchars(strip_tags($this->id));
-  $this->name = htmlspecialchars(strip_tags($this->name));
+  $this->author = htmlspecialchars(strip_tags($this->author));
  
 
   // Bind data
   $stmt->bindParam(':id', $this->id);
-  $stmt->bindParam(':name', $this->name);
+  $stmt->bindParam(':name', $this->author);
  $post_arr = array();
   // Execute query
   if($stmt->execute()) {
     $post_arr = array(
       'id'=> $this->id,
-      'author'=> $this->name,       
+      'author'=> $this->author,       
   );
   return $post_arr;
 }
