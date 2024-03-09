@@ -9,7 +9,7 @@ class Category{
     # Category Properties
     public $id;
     public $name;
-   public $category;
+    public $category;
 
 
     #constructor with DB
