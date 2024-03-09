@@ -1,9 +1,4 @@
 <?php
-
-
-
-
-
 #get ID from URL
 $author->id = isset($_GET['id']) ? $_GET['id'] : die();
 

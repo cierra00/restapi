@@ -46,8 +46,13 @@ if($method=== 'DELETE' || $Method==='PUT'){
         $quote->read_single();
     }
 }
-    
-   
+if($method=== 'POST' || $Method==='PUT'){
+    if($data->author_id !== $quote->author_id){
+        echo json_encode(array('message'=> 'author_id Not Found'));
+    }
+}
+
+
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
   if ($method === 'POST') { require_once('create.php'); };
