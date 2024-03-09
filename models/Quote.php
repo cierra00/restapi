@@ -39,7 +39,7 @@ class Quote{
     public function read_single(){
       
          #create query
-         $query = 'SELECT c.name as category_name, q.id as id, q.category_id, q.quote, a.id as author_id, a.name as author_name
+         $query = 'SELECT c.name as category_name, q.id as id, q.category_id as category_id, q.quote as quote, a.id as author_id, a.name as author_name
          FROM ' . $this->table . ' q
          LEFT JOIN categories c ON q.category_id = c.id
          LEFT JOIN authors a ON q.author_id = a.id
@@ -50,6 +50,7 @@ class Quote{
 
         #Bind ID
        $stmt->bindParam(1, $this->id);
+       
 
         #Execute Query
         $stmt->execute();
