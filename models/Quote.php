@@ -4,7 +4,7 @@ class Quote{
 
     #db declarations
     private $conn;
-    public $table = 'quotes';
+    private $table = 'quotes';
 
     # Quote Properties
     public $id;
@@ -102,6 +102,8 @@ class Quote{
 
   return false;
 }
+
+
 
 
 
