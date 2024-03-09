@@ -41,25 +41,14 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-if($method=== 'DELETE' || $method==='PUT'){
+if($method !== 'DELETE' ){
     if($data->id !== $quote->id){
         $quote->read_single();
     }
 }
-if($method === 'POST'){
-   if($data->author_id !== $quote->author_id ){
-    echo json_encode(
-        array('message' => 'author_id Not Found')
-    );
-}
-   if($data->category_id !== $quote->category_id ){
-    echo json_encode(
-        array('message' => 'category_id Not Found')
-    );
+
    
-   }
-   
-}
+
 
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
