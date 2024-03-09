@@ -8,14 +8,17 @@
   
 
   // Create author from db
-  if($author->update()) {
-    echo json_encode(
-      array('id' => $data->id,
-      'author' => $data->name
-      )
+  if (
+    !empty($data->name)  && !empty($id)
+    ) { try{
+      $output = $author->update();
+      echo json_encode($output);
+    } catch(Exception $e){
+      echo json_encode(
+        array('message' => $e->getMessage())
     );
-  } else {
-    echo json_encode(
-      array('message' => 'Missing Required Parameters')
-    );
+    }}  else {
+      echo json_encode(
+          array('message' => 'Missing Required Parameters')
+      );
   }
