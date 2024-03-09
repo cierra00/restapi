@@ -6,13 +6,13 @@
   $quote->category_id = $data->category_id;
 
   $post_arr = array(
-    'id'=> $quote->create(),
+    'id'=> $quote->id,
     'quote'=> $quote->quote,
     'category_id'=>$quote->category_id,
     'author_id' =>$quote->author_id    
 );
   // Create quote
-  if ($category_id ) {
+  if ($quote->create()) {
   
         $quote->quote = $data->quote;
         $quote->author_id = $author_id;
