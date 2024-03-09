@@ -41,7 +41,7 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-if($method=== 'DELETE' || $Method==='PUT'){
+if($method=== 'DELETE' || $method==='PUT'){
     if($data->id !== $quote->id){
         $quote->read_single();
     }
