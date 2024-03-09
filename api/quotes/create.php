@@ -19,8 +19,7 @@
         $quote->category_id = $category_id;
         
         try {
-            $result = $quote->create();
-            echo json_encode($post_arr);
+          echo json_encode($post_arr);
         } catch (Exception $e) {
             echo json_encode(
                 array('message' => $e->getMessage())
@@ -31,5 +30,4 @@
             array('message' => 'Missing Required Parameters')
         );
     }
-    exit();
-    //test
+   
