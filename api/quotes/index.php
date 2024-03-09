@@ -44,13 +44,19 @@
    
 if($method !== 'DELETE' ){
     
-   $quote->category_id = $data->category_id;
-
-    if($quote->category_id){
-        echo $quote->category_id;
+  $id_exists = isValid($category_id, $category);
+    if(!$id_exists){
+        echo json_encode(
+            array('message' => 'category_id Not Found')
+        );
+        exit();
     }
+  }
     
-}
+
+
+  
+
 
    
 
