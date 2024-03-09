@@ -116,10 +116,14 @@ public function update() {
   // Bind data
   $stmt->bindParam(':id', $this->id);
   $stmt->bindParam(':name', $this->name);
-
+ $post_arr = array();
   // Execute query
   if($stmt->execute()) {
-    return true;
+    $post_arr = array(
+      'id'=> $this->id,
+      'name'=> $this->name,       
+  );
+  return $post_arr;
 }
 
 // Print error if something goes wrong
