@@ -36,7 +36,15 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
-
+    if ($method === 'DELETE' || $method === 'PUT') {
+        $idExists = isValid($id, $quote);
+        if (!$idExists) { 
+            echo json_encode(
+                array('message' => 'No Quotes Found')
+            );
+            exit();
+        }
+    }
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
