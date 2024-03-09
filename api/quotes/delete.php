@@ -41,7 +41,7 @@
   $quoteExists = isValid($id, $quote);
         if ($quoteExists) { 
           echo json_encode($quote->delete());
-            exit();
+          
         } else {
           echo json_encode(
             array('message' => 'No Quotes Found')
