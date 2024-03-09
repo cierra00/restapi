@@ -11,6 +11,7 @@
     require_once('../../models/Quote.php');
     require_once('../../models/Author.php');
     require_once('../../models/Category.php');   
+    require_once('../../functions/isValid.php');
 
 
      /* Initialization of variables*/
@@ -41,6 +42,17 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     }
    
+
+       // DELETE and UPDATE/PUT need to validate the (quote) id parameter
+       if ($method === 'DELETE' || $method === 'PUT') {
+        $idExists = isValid($id, $quote);
+        if (!$idExists) { 
+            echo json_encode(
+                array('message' => 'No Quotes Found')
+            );
+            exit();
+        }
+    }
    
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
