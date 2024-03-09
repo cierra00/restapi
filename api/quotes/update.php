@@ -1,15 +1,6 @@
 <?php 
  
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
-
-  // Instantiate blog quote object
-  $quote = new Quote($db);
-
-
-
-  //set id to update
+   //set id to update
 
   $quote->id = $data->id;
   $quote->quote = $data->quote;
