@@ -1,7 +1,7 @@
 <?php
 
 #get ID from URL
-$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+$quote->id = $id;
 
 #Get Post 
 $quote->read_single();
@@ -11,9 +11,9 @@ $quote->read_single();
 $post_arr = array(
     'id'=> $quote->id,
     'quote'=> $quote->quote,
-    #'author_id'=> $quote->author_id,
+    'author_id'=> $quote->author_id,
     'category'=> $quote->category_name,
-    #'category_id'=> $quote->category_id,
+    'category_id'=> $quote->category_id,
     'author' => $quote->author_name   
 
 );

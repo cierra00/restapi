@@ -6,7 +6,7 @@
   $quote->category_id = $data->category_id;
 
   $post_arr = array(
-    'id'=> $quote->id,
+     #'id'=> $quote->id,
     'quote'=> $quote->quote,
     'category_id'=>$quote->category_id,
     'author_id' =>$quote->author_id    

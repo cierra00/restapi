@@ -4,7 +4,7 @@ class Quote{
 
     #db declarations
     private $conn;
-    private $table = 'quotes';
+    public $table = 'quotes';
 
     # Quote Properties
     public $id;
@@ -67,7 +67,7 @@ class Quote{
         $this->author_name =$row['author_name'];
        }
 
-       return $row;
+       return $stmt;
 
     }
 
@@ -105,8 +105,6 @@ class Quote{
 
 
 
-
-
 #Update Quote
 public function update() {
   // Create query
@@ -135,7 +133,7 @@ $post_arr = array();
       'author_id'=> $this->author_id,
       #'category'=> $this->category_name,
       'category_id'=> $this->category_id,
-      'author' => $this->author_name   
+      #'author' => $this->author_name   
   
   );
   return $post_arr;

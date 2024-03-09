@@ -53,3 +53,4 @@
   if ($method === 'POST') { require_once('create.php'); };
   if ($method === 'PUT' && $id) { require_once('update.php'); };
   if ($method === 'DELETE') { require_once('delete.php'); };
+  
