@@ -12,7 +12,6 @@
 
   include_once '../../config/Database.php';
   include_once '../../models/Quote.php';
-  include_once '../../functions/isValid.php';
 
   // Instantiate DB & connect
   $database = new Database();
@@ -24,19 +23,11 @@
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
 
-
   //set id to update
 
   $quote->id = $data->id;
-  $id= $data->id;
   
-  $idExists = isValid($id, $quote);
-  if (!$idExists) { 
-      echo json_encode(
-          array('message' => 'No Quotes Found')
-      );
-      exit();
-  }
+
   //Delete quote
   if($quote->delete()) {
     echo json_encode($quote->delete());
