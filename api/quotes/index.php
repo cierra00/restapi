@@ -42,7 +42,7 @@
     }
    
 if($method=== 'DELETE' || $Method==='PUT'){
-    if($data->id === $quote->id){
+    if($data->id !== $quote->id){
         $quote->read_single();
     }
 }
