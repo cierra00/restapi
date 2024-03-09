@@ -30,12 +30,14 @@
   
   if (!empty($data->author) && !empty($id)) {
 
-    $author->author = $data->author;
+    $author->name = $data->author;
     $author->id = $id;
     
     try {
         $result = $author->update();
-        echo json_encode($result);
+        echo json_encode(array('id'=> $author->id,
+        'author'=> $author->name
+        ));
     } catch (Exception $e) {
         echo json_encode(
             array('message' => $e->getMessage())
