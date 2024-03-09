@@ -20,8 +20,7 @@
   // Instantiate blog category object
   $category = new Category($db);
 
-  // Get raw category data
-  $data = json_decode(file_get_contents("php://input"));
+ 
 
   $category->name = $data->name;
   $post_arr = array(

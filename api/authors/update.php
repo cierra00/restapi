@@ -28,24 +28,16 @@
   $author->id = $data->id;
   $author->name = $data->name;
   
-  if (!empty($data->author) && !empty($id)) {
 
-    $author->name = $data->author;
-    $author->id = $id;
-    
-    try {
-        $result = $author->update();
-        echo json_encode(array('id'=> $author->id,
-        'author'=> $author->name
-        ));
-    } catch (Exception $e) {
-        echo json_encode(
-            array('message' => $e->getMessage())
-        );
-    }
-} else {
+  // Create author from db
+  if($author->update()) {
     echo json_encode(
-        array('message' => 'Missing Required Parameters')
+      array('id' => $data->id,
+      'author' => $data->name
+      )
     );
-}
-exit();
+  } else {
+    echo json_encode(
+      array('message' => 'Missing Required Parameters')
+    );
+  }
