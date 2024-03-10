@@ -40,10 +40,22 @@
     // Handle ID from parameter in URL
     if ($method === 'GET') {
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $author_id = filter_input(INPUT_GET, 'author_id', FILTER_VALIDATE_INT);
+        $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
     }
    
    
-
+if($method === 'POST'){
+    $id = $quote->id;
+    $quote->author_id = $data->author_id;
+    $author->id = $data->author_id;
+  if($author->read_single()){
+   echo json_encode(array(
+    'message' => 'author_id Not Found'
+    ));
+    exit();
+  }
+}
    
 
 

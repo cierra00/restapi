@@ -64,7 +64,9 @@ class Author{
         
       }
  
-     
+     if($this->id !== null){
+      return true;
+     } else {return false;}
   }
 
    #Create Category
