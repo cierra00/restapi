@@ -47,13 +47,26 @@
    
 if($method === 'POST'){
     $id = $quote->id;
-    $quote->author_id = $data->author_id;
+    $quote->author_id = $author->id;
+    $data->author_id;
     $author->id = $data->author_id;
   if(!$author->read_single()){
    echo json_encode(array(
-    'message' => 'author_id Not Found'
+    'message' =>  $quote->author_id
     ));
-    exit();
+   
+  }
+}
+if($method === 'POST'){
+    $id = $quote->id;
+    $quote->category_id = $category->id;
+    $data->category_id;
+    $author->id = $data->category_id;
+  if(!$author->read_single()){
+   echo json_encode(array(
+    'message' =>  $quote->category_id
+    ));
+   
   }
 }
    
