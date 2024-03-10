@@ -45,25 +45,26 @@
     }
    
    
-// if($method === 'POST'){
-//     $id = $quote->id;
-//     $quote->author_id = $author->id;
-//     $data->author_id;
-//     $author->id = $data->author_id;
-//   if(!$author->read_single()){
-//    echo json_encode(array(
-//     'message' =>  $quote->author_id
-//     ));
+if($method === 'POST'){
+    $id = $quote->id;
+    $quote->author_id = $author->id;
+    $data->author_id;
+    $author->id = $data->author_id;
+  if(!$author->read_single()){
+    echo json_encode(
+      array('message' => 'Missing Required Parameters')
+  );
+
    
-//   }
-// }
+  } else {require_once('create.php');}
+}
    
 
 
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
-  if ($method === 'POST') { require_once('create.php'); };
+  // if ($method === 'POST') { require_once('create.php'); };
   if ($method === 'PUT' && $id) { require_once('update.php'); };
   if ($method === 'DELETE') { require_once('delete.php'); };
   
