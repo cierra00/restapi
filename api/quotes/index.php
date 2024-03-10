@@ -54,6 +54,7 @@ if($method === 'POST'){
     echo json_encode(
       array('message' => 'Missing Required Parameters')
   );
+  exit();
 
    
   } else {require_once('create.php');}
