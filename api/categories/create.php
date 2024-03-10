@@ -1,14 +1,6 @@
 <?php 
   
-  // Instantiate DB & connect
-  $database = new Database();
-  $db = $database->connect();
-
-  // Instantiate blog category object
-  $category = new Category($db);
-
  
-
   $category->name = $data->name;
   $post_arr = array(
     'id'=> $category->create(),

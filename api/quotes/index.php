@@ -45,18 +45,18 @@
     }
    
    
-if($method === 'POST'){
-    $id = $quote->id;
-    $quote->author_id = $author->id;
-    $data->author_id;
-    $author->id = $data->author_id;
-  if(!$author->read_single()){
-   echo json_encode(array(
-    'message' =>  $quote->author_id
-    ));
+// if($method === 'POST'){
+//     $id = $quote->id;
+//     $quote->author_id = $author->id;
+//     $data->author_id;
+//     $author->id = $data->author_id;
+//   if(!$author->read_single()){
+//    echo json_encode(array(
+//     'message' =>  $quote->author_id
+//     ));
    
-  }
-}
+//   }
+// }
    
 
 
