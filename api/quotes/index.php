@@ -57,18 +57,7 @@ if($method === 'POST'){
    
   }
 }
-if($method === 'POST'){
-    $id = $quote->id;
-    $quote->category_id = $category->id;
-    $data->category_id;
-    $author->id = $data->category_id;
-  if(!$author->read_single()){
-   echo json_encode(array(
-    'message' =>  $quote->category_id
-    ));
-   
-  }
-}
+
    
 
 
