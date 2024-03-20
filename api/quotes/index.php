@@ -70,12 +70,7 @@
         else {
             require_once('create.php'); 
           }
-        if(!isValid($data->author_id, $author)){
-            echo json_encode(array('message'=> 'author_id Not Found'));
-          }
-        else {
-          require_once('update.php'); 
-        }
+        
           }
   
 
