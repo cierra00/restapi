@@ -69,12 +69,14 @@
     if ($method === 'PUT') { 
         if(!isValid($data->category_id, $category)){
           echo json_encode(array('message'=> 'category_id Not Found'));
+          exit();
         }
         else {
             require_once('create.php'); 
           }
         if(!isValid($data->author_id, $author)){
             echo json_encode(array('message'=> 'author_id Not Found'));
+            exit();
           }
         else {
           require_once('update.php'); 
@@ -87,5 +89,10 @@
 
   if ($method === 'PUT' && $id) {
      require_once('update.php'); };
-  if ($method === 'DELETE') { require_once('delete.php'); };
-  
+  if ($method === 'DELETE') {
+    if(!isValid($data->id, $Quotes)){
+        echo json_encode(array('message'=> 'No Quotes Found'));
+    } else {
+       
+    require_once('delete.php'); };
+    }
