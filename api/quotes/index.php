@@ -42,17 +42,20 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $author_id = filter_input(INPUT_GET, 'author_id', FILTER_VALIDATE_INT);
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
+        if (!$id) { require_once('read.php'); };
+        if ($id) { require_once('read_single.php'); };
     }
    
    
 
-   
+
 
 
 
   if ($method === 'GET' && !$id) { require_once('read.php'); };
   if ($method === 'GET' && $id) { require_once('read_single.php'); };
   if ($method === 'POST') { require_once('create.php'); };
-  if ($method === 'PUT' && $id) { require_once('update.php'); };
+  if ($method === 'PUT' && $id) {
+     require_once('update.php'); };
   if ($method === 'DELETE') { require_once('delete.php'); };
   
