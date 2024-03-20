@@ -82,8 +82,7 @@
 
 
 
-  if ($method === 'PUT' && $id) {
-     require_once('update.php'); };
+  
   if ($method === 'DELETE') {
     if(!isValid($data->id, $quote)){
         echo json_encode(array('message'=> 'No Quotes Found'));
