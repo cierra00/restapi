@@ -67,20 +67,24 @@
     }
 
     if ($method === 'PUT') { 
-        if(!isValid($data->author_id, $author)){
-          echo json_encode(array('message'=> 'author_id Not Found'));
-          
+        if(!isValid($data->id, $quote)){
+            echo json_encode(array('message'=> 'No Quotes Found'));
+        } else {
+            if(!isValid($data->author_id, $author)){
+                echo json_encode(array('message'=> 'author_id Not Found'));
+                
+              }
+              if(isValid($data->category_id, $category)){
+                  echo isValid($data->category_id, $category);
+              }
+              else {
+                  require_once('update.php'); 
+                }
         }
-        if(isValid($data->category_id, $category)){
-            echo isValid($data->category_id, $category);
-        }
-        else {
-            require_once('update.php'); 
-          }
         
           }
-  
 
+        
 
 
 
