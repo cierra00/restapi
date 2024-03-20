@@ -68,7 +68,7 @@
     
         }
         else {
-            require_once('create.php'); 
+            require_once('update.php'); 
           }
         
           }
