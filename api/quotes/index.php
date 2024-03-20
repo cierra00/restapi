@@ -57,7 +57,7 @@
     echo json_encode(array('message'=> 'author_id Not Found'));
   } 
 
-  if(!isValid($data->category_id_id, $category)){
+  if(!isValid($data->category_id, $category)){
     echo json_encode(array('message'=> 'category_id Not Found'));
   } else {
     require_once('create.php'); 
