@@ -10,7 +10,8 @@
     require_once('../../config/Database.php');
     require_once('../../models/Quote.php');
     require_once('../../models/Author.php');
-    require_once('../../models/Category.php');   
+    require_once('../../models/Category.php');  
+    require_once('../../functions/isValid.php'); 
    
 
 
@@ -42,18 +43,28 @@
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $author_id = filter_input(INPUT_GET, 'author_id', FILTER_VALIDATE_INT);
         $category_id = filter_input(INPUT_GET, 'category_id', FILTER_VALIDATE_INT);
-        if (!$id) { require_once('read.php'); };
-        if ($id) { require_once('read_single.php'); };
+        if (!$id) { 
+            require_once('read.php'); 
+        };
+        if ($id) 
+        { 
+            require_once('read_single.php');
+         };
     }
    
-   
+    if ($method === 'POST') { 
+  if(!isValid($data->author_id, $author)){
+    echo json_encode(array('message'=> 'author_id Not Found'));
+  }
+    }
+    
+    
 
 
 
 
 
-  
-  if ($method === 'POST') { require_once('create.php'); };
+
   if ($method === 'PUT' && $id) {
      require_once('update.php'); };
   if ($method === 'DELETE') { require_once('delete.php'); };
