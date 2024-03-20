@@ -53,15 +53,11 @@
     }
    
   if ($method === 'POST') { 
-//   if(!isValid($data->author_id, $author)){
-//     echo json_encode(array('message'=> 'author_id Not Found'));
-//   } 
+ if(!isValid($data->author_id, $author)){
+ echo json_encode(array('message'=> 'author_id Not Found'));
+ } 
 
-  if(!isValid($data->category_id, $category)){
-echo $data->category_id;
-  } else {
-    require_once('create.php'); 
-  }
+
     }
 
     if ($method === 'PUT') { 
