@@ -59,7 +59,7 @@
     require_once('create.php');
  }
 
- if(!isValid($data->category_id, $author)){
+ if(!isValid($data->category_id, $category)){
     echo json_encode(array('message'=> 'category_id Not Found'));
     }  else{
        require_once('create.php');
