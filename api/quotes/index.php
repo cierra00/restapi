@@ -60,12 +60,7 @@
     require_once('create.php'); 
   }
 
-  if(!isValid($data->category_id, $category)){
-    echo json_encode(array('message'=> 'category_id Not Found'));
-    exit();
-  } else {
-    require_once('create.php'); 
-  }
+ 
     }
 
     if ($method === 'PUT') { 
