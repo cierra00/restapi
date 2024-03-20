@@ -65,6 +65,7 @@
 
  
     }
+}
 
     if ($method === 'PUT') { 
         if(!isValid($data->category_id, $category)){
