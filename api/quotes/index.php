@@ -55,7 +55,7 @@
   if ($method === 'POST') { 
   if(!isValid($data->author_id, $author)){
     echo json_encode(array('message'=> 'author_id Not Found'));
-  }
+    exit();
   if(!isValid($data->category_id_id, $category)){
     echo json_encode(array('message'=> 'category_id Not Found'));
   }
