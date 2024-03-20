@@ -52,8 +52,7 @@
 
 
 
-  if ($method === 'GET' && !$id) { require_once('read.php'); };
-  if ($method === 'GET' && $id) { require_once('read_single.php'); };
+  
   if ($method === 'POST') { require_once('create.php'); };
   if ($method === 'PUT' && $id) {
      require_once('update.php'); };
