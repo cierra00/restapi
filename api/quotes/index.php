@@ -53,43 +53,41 @@
     }
    
   if ($method === 'POST') { 
- 
-  if(!$data->author_id || !$data->category_id || !$data->quote ){
-    echo json_encode(array('message'=> 'Missing Required Parameters'));
-  }
-  if(!isValid($data->author_id, $author)){
-    echo json_encode(array('message'=> 'author_id Not Found'));
-    exit();
-  }
+//   if(!isValid($data->author_id, $author)){
+//     echo json_encode(array('message'=> 'author_id Not Found'));
+//   } 
+
   if(!isValid($data->category_id, $category)){
-    echo json_encode(array('message'=> 'category_id Not Found'));
-    exit();
-  }
-   else {
+echo $data->category_id;
+  } else {
     require_once('create.php'); 
   }
-
- 
     }
 
     if ($method === 'PUT') { 
         if(!isValid($data->category_id, $category)){
           echo json_encode(array('message'=> 'category_id Not Found'));
-      
+          exit();
         }
         else {
             require_once('create.php'); 
           }
-        
+        if(!isValid($data->author_id, $author)){
+            echo json_encode(array('message'=> 'author_id Not Found'));
+          }
+        else {
+          require_once('update.php'); 
+        }
           }
   
 
 
 
 
-  
+  if ($method === 'PUT' && $id) {
+     require_once('update.php'); };
   if ($method === 'DELETE') {
-    if(!isValid($data->id, $quote)){
+    if(!isValid($data->id, $Quotes)){
         echo json_encode(array('message'=> 'No Quotes Found'));
     } else {
        
