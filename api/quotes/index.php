@@ -53,6 +53,9 @@
     }
    
   if ($method === 'POST') { 
+  if(!$data->author_id || !$data->category_id || !$data->quote ){
+    echo json_encode(array('message'=> 'Missing Required Parameters'));
+  }
   if(!isValid($data->author_id, $author)){
     echo json_encode(array('message'=> 'author_id Not Found'));
     exit();
