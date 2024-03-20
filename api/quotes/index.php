@@ -63,6 +63,9 @@
     }
 
     if ($method === 'PUT') { 
+       if($data->id === null || $data->category_id === null || $data->quote === null){
+        echo json_encode(array('message'=> 'Missing Required Parameters'));
+       } else {
         if(!isValid($data->id, $quote)){
             echo json_encode(array('message'=> 'No Quotes Found'));
         } else {
@@ -77,6 +80,7 @@
                   require_once('update.php'); 
                 }
         }
+       }
         
           }
 
