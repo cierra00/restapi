@@ -6,9 +6,7 @@
     ) {
     }
   $author->id = $data->id;
-  $author->author = $data->author;
-  
-  
+  $author->author = $data->author;  
   
 
   // Create author
@@ -31,8 +29,3 @@
   
  
     
-  // } else {
-  //   echo json_encode(
-  //     array('message' => 'Missing Required Parameters')
-  //   );
-  // }

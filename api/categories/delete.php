@@ -1,9 +1,5 @@
 <?php 
- 
-
-
-
-  //set id to update
+   //set id to update
 
   $category->id = $data->id;
   

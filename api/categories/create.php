@@ -1,5 +1,4 @@
-<?php 
-  
+<?php   
  
   $category->name = $data->name;
   $post_arr = array(

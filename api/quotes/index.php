@@ -47,21 +47,15 @@ $category = new Category( $db );
 
 // Handle ID from parameter in URL
 if ( $method === 'GET' ) {
-    $id = filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT );
-    
+    $id = filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT );    
     if ( !$id ) {
-
         require_once( 'read.php' );
-
-    }
-    ;
-    if ( $id ) 
- {
-
+    };
+    if ( $id ) {
         require_once( 'read_single.php' );
-    }
-    ;
+    };
 }
+
 // POST request routing
 if ( $method === 'POST' ) {
 
@@ -70,9 +64,9 @@ if ( $method === 'POST' ) {
     } else {
         require_once( 'create.php' );
     }
-
 }
 
+//Update Routing
 if ( $method === 'PUT' ) {
 
     if ( !isValid( $data->id, $quote ) ) {
@@ -92,14 +86,12 @@ if ( $method === 'PUT' ) {
 
 }
 
-
+// Delete Method Routing
 
 if ( $method === 'DELETE' ) {
     if ( !isValid( $data->id, $quote ) ) {
         echo json_encode( array( 'message'=> 'No Quotes Found' ) );
     } else {
-
         require_once( 'delete.php' );
-    }
-    ;
+    };
 }

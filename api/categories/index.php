@@ -1,6 +1,5 @@
 <?php 
   // Headers
- 
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
   $method = $_SERVER['REQUEST_METHOD'];
@@ -11,11 +10,8 @@
       exit();
   }
 
-
   include_once '../../config/Database.php';
   include_once '../../models/Category.php';
-
-
 
 
      /* Initialization of variables*/
@@ -44,8 +40,18 @@
     
  
 
-  if ($method === 'GET' && !$id) { require_once('read.php'); };
-  if ($method === 'GET' && $id) { require_once('read_single.php'); };
-  if ($method === 'POST') { require_once('create.php'); };
-  if ($method === 'PUT' && $id) { require_once('update.php'); };
-  if ($method === 'DELETE' && $id !== null) { require_once('delete.php'); };
+  if ($method === 'GET' && !$id) { 
+    require_once('read.php'); 
+  }
+  if ($method === 'GET' && $id) { 
+    require_once('read_single.php'); 
+  }
+  if ($method === 'POST') { 
+    require_once('create.php'); 
+  }
+  if ($method === 'PUT' && $id) { 
+    require_once('update.php'); 
+  }
+  if ($method === 'DELETE' && $id !== null) { 
+    require_once('delete.php');
+   }

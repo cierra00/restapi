@@ -1,9 +1,5 @@
 <?php
 
-
-
-
-
 #get ID from URL
 $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
@@ -21,7 +17,6 @@ $post_arr = array(
     'author' => $quote->author_name   
 
 );
-
 function countNull($post_arr){
     $count = 0;
 foreach($post_arr as $b){
@@ -31,7 +26,6 @@ foreach($post_arr as $b){
        
     }
 }
-
 if($count >=1){
     echo json_encode(
         array('message' => 'No Quotes Found')

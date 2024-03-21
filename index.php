@@ -7,5 +7,7 @@
 </head>
 <body>
     <h1>Rest API | PHP</h1>
+    <h2>Cierra Ray</h2>
+    <h3>Midterm Project</h3>
 </body>
 </html>

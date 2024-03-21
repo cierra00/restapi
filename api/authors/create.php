@@ -1,6 +1,5 @@
 <?php 
  
-
     $author->name = $data->name;
     $post_arr = array(
       'id'=> $author->create(),
